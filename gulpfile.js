@@ -1,9 +1,9 @@
 'use strict';
 /*jslint node: true */
 
+var gulp   = require('gulp');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
-var gulp   = require('gulp');
 var mocha = require('gulp-mocha');
 
 
@@ -14,11 +14,10 @@ gulp.task('test', function () {
 
 
 gulp.task('lint', function() {
-  return gulp.src('./lib/*.js')
+  gulp.src(['./lib/*.js','./test/*.js'])
   .pipe(jshint())
-  .pipe(jshint.reporter(stylish));
+  .pipe(jshint.reporter(stylish), {verbose: true});
 });
 
 
-gulp.task('default', ['lint', 'test']);
-          
+gulp.task('default', ['lint','test']);
