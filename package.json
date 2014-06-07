@@ -1,6 +1,6 @@
 {
   "name": "troll-avg",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Time based rolling average calculations",
   "main": "./lib/troll-avg.js",
   "scripts": {
