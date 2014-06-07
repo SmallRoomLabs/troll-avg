@@ -28,12 +28,12 @@ setInterval(function() {
 		ravg.update('bletch');
 	}
 },250);
-```
 
 // Show all averages every second
 setInterval(function() {
 	console.log(ravg.averages());
 }, 1000);
+```
 
 ## Methods
 
@@ -43,13 +43,13 @@ The constructor expects three arguments.
  2. How many seconds the data for each key is collected into one bins.
  3. How many bins that the average is calculated over.
 
-### update(key, cnt) 
+### .update(key, cnt) 
 Add then *cnt* value into the current bin. If *cnt* is not specified it defaults to 1.
 
-### average(key)
+### .average(key)
 Return the rolling average value for the specified key.
 
-### averages()
+### .averages()
 Return the rolling average values for all keys as an object.
 
 ## Notes
