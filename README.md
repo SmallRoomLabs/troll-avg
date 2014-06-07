@@ -1,48 +1,62 @@
-troll-avg (CURRENTLY BUGGY!)
-=========
+# troll-avg (CURRENTLY BUGGY!)
 Time-based rolling average calculations for node.js
 
-___
 
-Installation
-===============
-
+## Installation
 Via [npm][]:
 
     $npm install --save troll-avg
 
----
 ## Quick Start
 
-	var Troll=require('troll-avg');
+```javascript
+var Troll=require('troll-avg');
 
-    // Setup 5 counting slots collectng for 1 second each for
-    // three different keys. This wil give the average values
-    // over the last 5 seconds.
-    var series1keys=['foo','bar','bletch'];
-	var series1=new Troll(series1keys,1,5);
+// Setup 5 counting slots collecting updates for 1 second each 
+// for three different keys. This will give the average values
+// over the last 5 seconds.
+var ravg=new Troll(['foo','bar','bletch'], 1, 5);
 
-    // Increment a random key by 1 every 250 mS
-    setInterval(function() {
-        var r=Math.rand();
-        if (r<0.1) {            // 10% goes to Foo
-            series1.update('Foo');
-        } else if (r<0.4) {     // 30% goes to Bar
-            series1.update('Bar');
-        } else {                // 60% goes to Bletch
-            series1.update('Bletch');
-        }
-    },250);
+// Increment a random key by 1 every 250 mS
+setInterval(function() {
+	var r=Math.random();
+	if (r<0.1) {            // 10% goes to boo
+		ravg.update('foo');
+	} else if (r<0.4) {     // 30% goes to bar
+		ravg.update('bar');
+	} else {                // 60% goes to bletch
+		ravg.update('bletch');
+	}
+},250);
+```
 
-    // Show all averages every second
-    setInterval(function() {
-        console.log(series1.averages());
-    }, 1000);
+// Show all averages every second
+setInterval(function() {
+	console.log(ravg.averages());
+}, 1000);
+
+## Methods
+
+### Constructor (allowedKeys, period, binCount)
+The constructor expects three arguments.
+1. An array of the keys that are being averaged.
+2. How many seconds the data for each key is collected into one bins.
+3. How many bins that the average is calculated over.
+
+### update(key, cnt) 
+Add then *cnt* value into the current bin. If *cnt* is not specified it defaults to 1.
+
+### average(key)
+Return the rolling average value for the specified key.
+
+### averages()
+Return the rolling average values for all keys as an object.
+
+## Notes
+Since the collection of the values for the current time period is made into a separate set of bins calling .average() or .averages() before the first time period have elapsed the returned average(s) will be zero(s).
 
 
----
 ## License
-
 Released under the MIT License
 
 Copyright (c) 2014 Mats Engstrom - SmallRoomLabs
