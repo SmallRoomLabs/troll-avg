@@ -1,4 +1,4 @@
-# troll-avg (CURRENTLY BUGGY!)
+# troll-avg
 Time-based rolling average calculations for node.js
 
 
@@ -39,9 +39,9 @@ setInterval(function() {
 
 ### Constructor (allowedKeys, period, binCount)
 The constructor expects three arguments.
-1. An array of the keys that are being averaged.
-2. How many seconds the data for each key is collected into one bins.
-3. How many bins that the average is calculated over.
+ 1. An array of the keys that are being averaged.
+ 2. How many seconds the data for each key is collected into one bins.
+ 3. How many bins that the average is calculated over.
 
 ### update(key, cnt) 
 Add then *cnt* value into the current bin. If *cnt* is not specified it defaults to 1.
