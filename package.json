@@ -1,6 +1,6 @@
 {
   "name": "troll-avg",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Time based rolling average calculations",
   "main": "./lib/troll-avg.js",
   "scripts": {
@@ -12,10 +12,9 @@
     "url": "git@github.com:SmallRoomLabs/troll-avg.git"
   },
   "keywords": [
-    "node",
-    "node.js",
     "rolling",
     "average",
+    "averages",
     "time"
   ],
   "author": "Mats Engstrom",
@@ -30,6 +29,8 @@
     "jshint-stylish": "^0.2.0",
     "chai": "^1.9.1",
     "mocha": "^1.20.1",
-    "gulp-mocha": "^0.4.1"
+    "gulp-mocha": "^0.4.1",
+    "sinon": "^1.10.2",
+    "sinon-chai": "*"
   }
 }
