@@ -1,6 +1,6 @@
-# troll-avg
-Time-based rolling average calculations for node.js
+# troll-avg [![Build Status](https://travis-ci.org/SmallRoomLabs/troll-avg.svg?branch=master)](https://travis-ci.org/SmallRoomLabs/troll-avg)
 
+Time-based rolling average calculations for node.js
 
 ## Installation
 Via [npm][]:
@@ -56,7 +56,7 @@ Return the rolling average values for all keys as an object.
 Since the collection of the values for the current time period is made into a separate set of bins calling .average() or .averages() before the first time period have elapsed the returned average(s) will be zero(s).
 
 ## Testing
-Unit tests are done with mocha/chai.  THey can be run with ```npm test```
+Unit tests are done with mocha/chai.  They can be run with ```npm test```
 
 ## License
 Released under the MIT License
